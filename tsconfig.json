@@ -19,8 +19,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    /* Types */
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+
     /* Path Mapping */
-    "types": ["node"],
     "baseUrl": ".", // Required for intellisense to work
     "paths": {
       "@/*": ["./src/*"]
