@@ -36,7 +36,7 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: [".eslintrc.cjs", "vite.config.ts"],
+  ignorePatterns: [".eslintrc.cjs", "*.config.ts", "*.config.js"],
   settings: {
     react: {
       version: "detect", // Required to silence the warning of eslint-plugin-react thrown on running lint command
