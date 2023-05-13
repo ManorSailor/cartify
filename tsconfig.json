@@ -20,7 +20,12 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Types */
-    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+    "types": [
+      "node",
+      "vitest/globals",
+      "@testing-library/react",
+      "@testing-library/jest-dom",
+    ],
 
     /* Path Mapping */
     "baseUrl": ".", // Required for intellisense to work
