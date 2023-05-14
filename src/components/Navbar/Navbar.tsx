@@ -17,7 +17,7 @@ function Navbar(): ReactElement {
         <li className="text-lg text-slate-400 hover:text-slate-500 transition-colors duration-300">
           <NavLink to="/shop">Shop</NavLink>
         </li>
-        <li className="">
+        <li className="before:content-[''] before:absolute before:text-lg before:rounded-full before:top-[50%] before:pointer-events-none relative">
           <button
             className="p-2 border text-slate-400 hover:text-slate-500 border-slate-400 hover:border-slate-500 rounded-full transition-colors duration-300"
             aria-label="View Cart"
