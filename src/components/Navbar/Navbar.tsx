@@ -5,7 +5,7 @@ import "./navbar.css";
 
 function Navbar(): ReactElement {
   return (
-    <nav className="flex justify-between items-center px-5 py-3 shadow-md min-h-[80px]">
+    <nav className="flex justify-between items-center px-5 py-3 shadow-md min-h-[80px] fixed w-full">
       <Link to="/home">
         <h3 className="text-2xl tracking-wide">Cartify</h3>
       </Link>
