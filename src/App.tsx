@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import { Home } from "./pages";
+import { Home, Shop } from "./pages";
 
 function App(): ReactElement {
   return (
@@ -11,6 +11,7 @@ function App(): ReactElement {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </>
   );
