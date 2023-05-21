@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import { Home, Shop } from "./pages";
+import { Home, Shop, Cart } from "./pages";
 
 function App(): ReactElement {
   return (
@@ -13,6 +13,7 @@ function App(): ReactElement {
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
       </Routes>
+      <Cart />
     </>
   );
 }
