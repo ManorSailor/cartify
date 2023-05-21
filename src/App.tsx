@@ -1,19 +1,33 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import { Home, Shop, Cart } from "./pages";
+import useCart from "./hooks/useCart";
 
 function App(): ReactElement {
+  const [products, setProducts] = useState<Product[]>([]);
+  const cart = useCart();
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products?limit=3")
+      .then((res) => res.json())
+      .then(({ products }: DummyJSONResponse) => setProducts(products))
+      .catch((err: Error) => err);
+  }, []);
+
   return (
     <>
-      <Navbar />
+      <Navbar toggleCart={cart.toggleCart} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/shop"
+          element={<Shop products={products} cart={cart} />}
+        />
       </Routes>
-      <Cart />
+      <Cart cart={cart} products={products} />
     </>
   );
 }

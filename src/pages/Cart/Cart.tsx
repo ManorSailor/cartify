@@ -9,22 +9,34 @@ import {
   CartCheckoutBtn,
 } from "./components";
 
-function Cart(): ReactElement {
-  return (
+type CartProps = {
+  cart: ICart;
+  products: Product[];
+};
+
+function Cart({
+  cart: { isOpen, getDetails, toggleCart },
+  products,
+}: CartProps): ReactElement | null {
+  const { items, grossValue } = getDetails(products);
+
+  return isOpen ? (
     <CartBody>
-      <CartHeader />
+      <CartHeader toggleCart={toggleCart} />
 
       <CartContainer>
         <CartItemList>
-          <CartItem />
+          {items.map((item) => (
+            <CartItem item={item} />
+          ))}
         </CartItemList>
 
-        <CartDetails />
+        <CartDetails details={{ items, grossValue }} />
       </CartContainer>
 
       <CartCheckoutBtn />
     </CartBody>
-  );
+  ) : null;
 }
 
 export default Cart;

@@ -1,13 +1,19 @@
 import { ReactElement } from "react";
 
-function CartDetails(): ReactElement {
+type CartDetailsProps = {
+  details: CartDetails;
+};
+
+function CartDetails({
+  details: { items, grossValue },
+}: CartDetailsProps): ReactElement {
   return (
     <div className="shadow rounded-lg bg-gray-100 p-4">
       <p className="flex justify-between items-center text-xl">
-        Total Items: <span className="tracking-wide">0</span>
+        Products In Cart: <span className="tracking-wide">{items.length}</span>
       </p>
       <p className="flex justify-between items-center text-xl">
-        Gross Total: <span className="tracking-wide">$0</span>
+        Gross Total: <span className="tracking-wide">${grossValue}</span>
       </p>
     </div>
   );

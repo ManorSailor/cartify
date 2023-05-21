@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function useCart() {
+function useCart(): ICart {
   const [cart, setCart] = useState<Map<string | number, number>>(
     () => new Map()
   );
