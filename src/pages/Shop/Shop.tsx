@@ -1,25 +1,21 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 
 import ContentWrapper from "@/components/ContentWrapper";
 import { ProductCard, ProductList } from "./components";
 
-function Shop(): ReactElement {
-  const [products, setProducts] = useState<Product[]>([]);
+type ShopProps = {
+  products: Product[];
+  cart: ICart;
+};
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=3")
-      .then((res) => res.json())
-      .then(({ products }: DummyJSONResponse) => setProducts(products))
-      .catch((err: Error) => err);
-  }, []);
-
+function Shop({ products, cart }: ShopProps): ReactElement {
   return (
     <ContentWrapper className="flex p-4">
       <section className="grow">
         <ProductList>
           {products.map((product) => (
             <li key={product.id}>
-              <ProductCard {...product} />
+              <ProductCard product={product} cart={cart} />
             </li>
           ))}
         </ProductList>
