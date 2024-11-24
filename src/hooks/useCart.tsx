@@ -9,6 +9,7 @@ function useCart(): ICart {
   const [cart, setCart] = useState<Map<ProductID, ProductQty>>(() => new Map());
 
   const toggleCart = () => setIsOpen(!isOpen);
+  const getTotalItems = () => cart.size;
 
   const addItem = (productID: string, quantity = 1) =>
     setCart((oldCart) => new Map([...oldCart, [productID, quantity]]));
@@ -61,6 +62,7 @@ function useCart(): ICart {
 
   return {
     isOpen,
+    getTotalItems,
     getDetails,
     addItem,
     removeItem,

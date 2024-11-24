@@ -10,7 +10,7 @@ function App(): ReactElement {
   const cart = useCart();
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/products?limit=20")
       .then((res) => res.json())
       .then(({ products }: DummyJSONResponse) => setProducts(products))
       .catch((err: Error) => err);
@@ -18,7 +18,7 @@ function App(): ReactElement {
 
   return (
     <>
-      <Navbar toggleCart={cart.toggleCart} />
+      <Navbar cart={cart} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />

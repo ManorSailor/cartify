@@ -11,6 +11,7 @@ type CartItem = {
 type ICart = {
   isOpen: boolean;
   toggleCart: () => void;
+  getTotalItems: () => number;
   getDetails: (products: Product[]) => CartDetails;
   addItem: (productID: string, quantity?: number) => void;
   removeItem: (productID: string) => void;
