@@ -57,7 +57,7 @@ function useCart(): ICart {
       return items;
     }, []);
 
-    return { items, grossValue };
+    return { items, grossValue: parseFloat(grossValue.toFixed(2)) };
   };
 
   return {
