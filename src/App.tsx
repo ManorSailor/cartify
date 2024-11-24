@@ -10,7 +10,7 @@ function App(): ReactElement {
   const cart = useCart();
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=3")
+    fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then(({ products }: DummyJSONResponse) => setProducts(products))
       .catch((err: Error) => err);

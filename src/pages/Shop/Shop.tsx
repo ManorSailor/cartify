@@ -3,6 +3,8 @@ import { ReactElement } from "react";
 import ContentWrapper from "@/components/ContentWrapper";
 import { ProductCard, ProductList } from "./components";
 
+import type { ICart } from "@/types/Cart";
+
 type ShopProps = {
   products: Product[];
   cart: ICart;

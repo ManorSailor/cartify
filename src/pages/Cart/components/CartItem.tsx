@@ -1,14 +1,17 @@
-import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import QuantityCounter from "@/components/QuantityCounter";
 
+import type { ICart, CartItem as Item } from "@/types/Cart";
+
 type CartItemProps = {
-  item: CartItem;
+  item: Item;
+  cart: ICart;
 };
 
 function CartItem({
   item: { product, quantity },
-}: CartItemProps): ReactElement {
+  cart: { increaseQty, decreaseQty, removeItem },
+}: CartItemProps) {
   return (
     <li className="hover:bg-gray-200 transition-colors duration-200 rounded-lg p-4">
       <Link to={`shop/product/${product.id}`}>
@@ -34,9 +37,16 @@ function CartItem({
       </Link>
 
       <div className="flex justify-between items-center mt-4">
-        <QuantityCounter />
+        <QuantityCounter
+          quantity={quantity}
+          onIncrease={() => increaseQty(product.id, 1)}
+          onDecrease={() => decreaseQty(product.id, 1)}
+        />
 
-        <button className="text-white px-2 py-1 bg-violet-400 hover:bg-violet-500 transition-colors rounded-md">
+        <button
+          className="text-white px-2 py-1 bg-violet-400 hover:bg-violet-500 transition-colors rounded-md flex-grow"
+          onClick={() => removeItem(product.id)}
+        >
           Remove
         </button>
       </div>

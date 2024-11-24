@@ -1,22 +1,23 @@
-import { ReactElement, useState } from "react";
+type QuantityCounterProps = {
+  quantity: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
+};
 
-function QuantityCounter(): ReactElement {
-  const [quantity, setQuantity] = useState(1);
-
+function QuantityCounter({
+  quantity,
+  onIncrease,
+  onDecrease,
+}: QuantityCounterProps) {
   return (
-    <div className="flex gap-2 items-center">
-      <button className="p-2" onClick={() => setQuantity((q) => q - 1)}>
+    <div className="flex items-center justify-around flex-grow">
+      <button className="p-2" onClick={onDecrease}>
         -
       </button>
-      <input
-        type="number"
-        className="border border-slate-400 w-6 aspect-square text-center rounded-sm"
-        min={1}
-        max={50}
-        value={quantity}
-        onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-      />
-      <button className="p-2" onClick={() => setQuantity((q) => q + 1)}>
+      <span className="border border-slate-400 w-6 aspect-square text-center rounded-sm select-none">
+        {quantity}
+      </span>
+      <button className="p-2" onClick={onIncrease}>
         +
       </button>
     </div>

@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
 import { Link } from "react-router-dom";
+import CardActions from "@/components/CardActions";
 
-import CartActions from "@/components/CartActions";
+import type { ICart } from "@/types/Cart";
 
 type ProductCardProps = {
   product: Product;
@@ -10,8 +10,8 @@ type ProductCardProps = {
 
 function ProductCard({
   product: { id, title, thumbnail, price, rating },
-  cart
-}: ProductCardProps): ReactElement {
+  cart,
+}: ProductCardProps) {
   return (
     <article className="max-w-[320px] shadow-md rounded-lg p-4">
       <Link to={`product/${id}`}>
@@ -30,7 +30,7 @@ function ProductCard({
         </section>
       </Link>
 
-      <CartActions cart={cart} productID={id} />
+      <CardActions cart={cart} productID={id} />
     </article>
   );
 }

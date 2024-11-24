@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import {
   CartBody,
   CartHeader,
@@ -9,25 +8,24 @@ import {
   CartCheckoutBtn,
 } from "./components";
 
+import type { ICart } from "@/types/Cart";
+
 type CartProps = {
   cart: ICart;
   products: Product[];
 };
 
-function Cart({
-  cart: { isOpen, getDetails, toggleCart },
-  products,
-}: CartProps): ReactElement | null {
-  const { items, grossValue } = getDetails(products);
+function Cart({ cart, products }: CartProps) {
+  const { items, grossValue } = cart.getDetails(products);
 
-  return isOpen ? (
+  return cart.isOpen ? (
     <CartBody>
-      <CartHeader toggleCart={toggleCart} />
+      <CartHeader toggleCart={cart.toggleCart} />
 
       <CartContainer>
         <CartItemList>
           {items.map((item) => (
-            <CartItem item={item} />
+            <CartItem item={item} cart={cart} key={item.product.id} />
           ))}
         </CartItemList>
 

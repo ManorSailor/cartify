@@ -6,7 +6,7 @@ type DummyJSONResponse = {
 };
 
 type Product = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   price: number;
