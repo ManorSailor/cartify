@@ -1,6 +1,8 @@
 import { ReactElement } from "react";
 import { Icon } from "@iconify/react";
 
+import type { ICart } from "@/types/Cart";
+
 function CartHeader({ toggleCart }: Pick<ICart, "toggleCart">): ReactElement {
   return (
     <div className="flex justify-between items-center">

@@ -17,3 +17,5 @@ type Product = {
   thumbnail: string;
   images: string[];
 };
+
+export type { Product, DummyJSONResponse };

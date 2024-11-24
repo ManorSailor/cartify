@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import { Home, Shop, Cart } from "./pages";
 import useCart from "./hooks/useCart";
 
+import type { Product, DummyJSONResponse } from "./types/globals";
+
 function App(): ReactElement {
   const [products, setProducts] = useState<Product[]>([]);
   const cart = useCart();

@@ -4,6 +4,7 @@ import ContentWrapper from "@/components/ContentWrapper";
 import { ProductCard, ProductList } from "./components";
 
 import type { ICart } from "@/types/Cart";
+import type { Product } from "@/types/globals";
 
 type ShopProps = {
   products: Product[];

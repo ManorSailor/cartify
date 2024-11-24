@@ -1,3 +1,5 @@
+import type { Product } from "./globals";
+
 type CartDetails = {
   items: CartItem[];
   grossValue: number;

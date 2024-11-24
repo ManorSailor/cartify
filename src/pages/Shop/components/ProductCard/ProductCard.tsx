@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import CardActions from "@/components/CardActions";
 
 import type { ICart } from "@/types/Cart";
+import type { Product } from "@/types/globals";
 
 type ProductCardProps = {
   product: Product;

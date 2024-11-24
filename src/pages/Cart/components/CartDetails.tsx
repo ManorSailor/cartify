@@ -1,7 +1,8 @@
 import { ReactElement } from "react";
+import type { CartDetails as Details } from "@/types/Cart";
 
 type CartDetailsProps = {
-  details: CartDetails;
+  details: Details;
 };
 
 function CartDetails({

@@ -9,6 +9,7 @@ import {
 } from "./components";
 
 import type { ICart } from "@/types/Cart";
+import type { Product } from "@/types/globals";
 
 type CartProps = {
   cart: ICart;

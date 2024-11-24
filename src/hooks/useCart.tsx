@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+import type { Product } from "@/types/globals";
 import type { ICart, CartDetails, CartItem } from "@/types/Cart";
 
 type ProductID = string;
